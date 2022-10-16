@@ -12,11 +12,11 @@ class MeetingsController extends Controller
         $this->meetings = $meetings;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $meetings  = $this->meetings->paginate(5);
-
-        return view('meetings.index', compact('meetings'));
+        return $this->meetings->getMeetings(
+            $request->search ?? ""
+        );
     }
 
     public function create()
@@ -33,18 +33,12 @@ class MeetingsController extends Controller
 
     public function show($id)
     {
-        if(!$meeting = $this->meetings->find($id))
-            return redirect()->route('meetings.index');
-
-        return view('meetings.show', compact('meeting'));
+        return $this->meetings->validateIdAndReturnView('meetings.show', 'meetings.index', $this->meetings, $id);
     }
 
     public function edit($id)
     {
-        if(!$data = $this->meetings->find($id))
-            return redirect()->route('meetings.index');
-
-        return view('meetings.edit', compact('data'));
+        return $this->meetings->validateIdAndReturnView('meetings.edit', 'meetings.index', $this->meetings, $id);
     }
 
     public function update(Request $request, $id)
@@ -63,14 +57,6 @@ class MeetingsController extends Controller
 
     public function validateMeeting($id, Request $request)
     {
-        $data  =  $this->meetings->find($id);
-
-        if($data['password'] == $request->password)
-        {
-            return redirect()->route('meetings.show', $id);
-        }else
-        {
-            return redirect()->route('meetings.index')->with('error', 'senha inválida');
-        }
+        return $this->meetings->validateMeeting($id, $request->password,$this->meetings,'meetings.show', 'meetings.index');
     }
 }

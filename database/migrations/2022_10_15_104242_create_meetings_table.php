@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->string('name');
+            $table->string('meetingName');
             $table->string('password');
             $table->enum('status', ['public', 'private']);
             $table->string('url');

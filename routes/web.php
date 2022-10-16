@@ -18,12 +18,12 @@ require __DIR__.'/auth.php';
 Route::view('/', 'welcome');
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('/reunioes', [MeetingsController::class, 'index'])->name('meetings.index');
-    Route::get('/reunioes/criar', [MeetingsController::class, 'create'])->name('meetings.create');
-    Route::post('/reunioes/guardar', [MeetingsController::class, 'store'])->name('meetings.store');
-    Route::get('/reunioes/mostrar/{id}', [MeetingsController::class, 'show'])->name('meetings.show');
-    Route::get('/reunioes/editar/{id}', [MeetingsController::class, 'edit'])->name('meetings.edit');
-    Route::put('/reunioes/atualizar/{id}', [MeetingsController::class, 'update'])->name('meetings.update');
-    Route::delete('/reunioes/apagar/{id}', [MeetingsController::class, 'destroy'])->name('meetings.destroy');
-    Route::post('/reunioes/validando/{id}', [MeetingsController::class, 'validateMeeting'])->name('meetings.validate');
+    Route::get('/sala', [MeetingsController::class, 'index'])->name('meetings.index');
+    Route::get('/sala/criar', [MeetingsController::class, 'create'])->name('meetings.create');
+    Route::post('/sala/guardar', [MeetingsController::class, 'store'])->name('meetings.store');
+    Route::get('/sala/mostrar/{id}', [MeetingsController::class, 'show'])->name('meetings.show');
+    Route::get('/sala/editar/{id}', [MeetingsController::class, 'edit'])->name('meetings.edit');
+    Route::put('/sala/atualizar/{id}', [MeetingsController::class, 'update'])->name('meetings.update');
+    Route::delete('/sala/apagar/{id}', [MeetingsController::class, 'destroy'])->name('meetings.destroy');
+    Route::post('/sala/validando/{id}', [MeetingsController::class, 'validateMeeting'])->name('meetings.validate');
 });
