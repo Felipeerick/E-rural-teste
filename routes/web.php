@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\MeetingsController;
 use Illuminate\Support\Facades\Route;
+require __DIR__.'/auth.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/reunioes', [MeetingsController::class, 'index'])->name('meetings.index');
+    Route::get('/reunioes/criar', [MeetingsController::class, 'create'])->name('meetings.create');
+    Route::post('/reunioes/guardar', [MeetingsController::class, 'store'])->name('meetings.store');
+    Route::get('/reunioes/mostrar/{id}', [MeetingsController::class, 'show'])->name('meetings.show');
+    Route::get('/reunioes/editar/{id}', [MeetingsController::class, 'edit'])->name('meetings.edit');
+    Route::put('/reunioes/atualizar/{id}', [MeetingsController::class, 'update'])->name('meetings.update');
+    Route::delete('/reunioes/apagar/{id}', [MeetingsController::class, 'destroy'])->name('meetings.destroy');
+    Route::post('/reunioes/validando/{id}', [MeetingsController::class, 'validateMeeting'])->name('meetings.validate');
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-require __DIR__.'/auth.php';
