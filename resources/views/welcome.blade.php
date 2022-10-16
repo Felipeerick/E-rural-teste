@@ -3,7 +3,7 @@
 @section('content')
     <main class="">
         <div class='text-center center'>
-            <h1 class='text-dark margem'>Bem-vindo! Crie sua reunião e convide amigos.</h1>
+            <h1 class='text-dark margem'>Bem-vindo! Crie sua sala e convide amigos.</h1>
             <div class='mt-3' >     
                 @if(!Auth::user())      
                     <a href="/register" class='me-3 text-decoration-none pe-3 btn btn-outline-dark'>Cadastre-se</a>

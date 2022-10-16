@@ -39,7 +39,7 @@
                     @if($meeting->status == 'public')
                         <div class="position-relative mb-3">
                         <iframe width="100%" height="200px" src="{{ $meeting->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            <button class="btn btn-sm pe-none rounded-pill btn-warning position-absolute top-100 start-50 translate-middle"><strong>Video</strong></button>
+                            <a  href="{{ route('meetings.show', $meeting->id) }}" class="btn btn-sm  rounded-pill btn-warning position-absolute top-100 start-50 translate-middle"><strong>Entrar na sala</strong></a>
                         </div>
                     @else
                         <form action="{{ route('meetings.validate', $meeting->id) }}" method='POST' class='rounded shadow p-3 p-lg-5 form-group' enctype="multipart/form-data">
@@ -57,8 +57,7 @@
                                     <li>{{ session()->get('error') }}</li>
                                 </div>
                             @endif
-
-                            <input type="text" name="password" class="form-control mb-3" required placeholder="Digite a senha da sala">
+                            <input type="text" name="password" class="form-control mb-3" required id="password" placeholder="Digite a senha da sala">
                             <div class='text-center'>
                                 <button type="submit" class='btn btn-warning mt-2'>Enviar</button>
                             </div>
