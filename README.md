@@ -40,7 +40,7 @@ php -r "unlink('composer-setup.php');"
 
 - Para instalar o banco de dados, eu gosto de usar o [mariadb](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.11.0&os=windows&cpu=x86_64&pkg=msi&m=fder), e inclusive foi o que eu usei no projeto.
 
-- Para instalar o git [Git installer](https://git-scm.com/downloads), aqui tem vários sistemas operacionais.
+- Para instalar o git: [Git installer](https://git-scm.com/downloads), aqui tem vários sistemas operacionais.
 
 ### Rodando o projeto
 
@@ -50,12 +50,17 @@ Possuindo todas essas tecnologias instaladas na máquina, vamos começar. Primei
 git clone https://github.com/Felipeerick/E-rural-teste
 ```
 
-O git irá clonar tudo para a pasta. Depois disso abra o visual studio code e abra a pasta que o git clonou e rode o comando 
+O git irá clonar tudo para a pasta. Depois disso abra o visual studio code e abra a pasta que o git clonou e rode o comando, se você instalou na máquina o composer.
 ```
 composer update
 ```
-Depois, crie um banco de dados no maria db usando esses códigos:
+Senão,
+```
+php composer.phar update
+```
+Para rodar em outro sistema operacional ou como composer local, use para conhecer mais sobre a ferramenta e seus comandos [referência 1](https://www.hostinger.com.br/tutoriais/como-instalar-e-usar-o-composer) e [referência 2](https://getcomposer.org/doc/).
 
+Depois, crie um banco de dados no mariadb usando esses códigos:
 ```
 mariadb -u root (se você não alterou o nome do usuário) -p
 (e a senha se você colocou senha) ex:12345
@@ -69,7 +74,7 @@ Agora você terá que clonar o arquivo .env.example e renomear para .env, caso e
 php artisan key:generate
 ```
 
-agora configure o arquivo .env com essas variáveis:
+Agora configure o arquivo .env com essas variáveis:
 ```
 APP_NAME=Laravel
 APP_ENV=local
@@ -79,12 +84,13 @@ APP_URL=http://localhost:8000
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=api_teste
+DB_DATABASE=teste_e-rural
 DB_USERNAME=root
 DB_PASSWORD=12
 ```
-rode o comando agora 
+Rode o comando agora 
 ```
+php artisan migrate
 php artisan serve
 ```
 
