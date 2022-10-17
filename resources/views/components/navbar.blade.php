@@ -12,7 +12,7 @@
                   </li>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('meetings.index') }}">Sala</a>
+                    <a class="nav-link" href="{{ route('meetings.index') }}">Salas</a>
                 </li>
               </ul>
               <div class="navbar-nav">

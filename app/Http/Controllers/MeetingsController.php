@@ -19,11 +19,6 @@ class MeetingsController extends Controller
         );
     }
 
-    public function create()
-    {
-        return view('meetings.create');
-    }
-
     public function store(Request $request)
     {
         $this->meetings->create($request->all());
@@ -55,8 +50,13 @@ class MeetingsController extends Controller
         return redirect()->route('meetings.index');
     }
 
+    public function meetingsPrivate($id)
+    {
+        return $this->meetings->validateIdAndReturnView('meetings.private', 'meetings.private', $this->meetings, $id);
+    }
+
     public function validateMeeting($id, Request $request)
     {
-        return $this->meetings->validateMeeting($id, $request->password,$this->meetings,'meetings.show', 'meetings.index');
+        return $this->meetings->validateMeeting($id, $request->password,$this->meetings,'meetings.show', 'meetings.private');
     }
 }

@@ -19,11 +19,12 @@ Route::view('/', 'welcome');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/sala', [MeetingsController::class, 'index'])->name('meetings.index');
-    Route::get('/sala/criar', [MeetingsController::class, 'create'])->name('meetings.create');
+    Route::view('/sala/criar', 'meetings.create')->name('meetings.create');
     Route::post('/sala/guardar', [MeetingsController::class, 'store'])->name('meetings.store');
     Route::get('/sala/mostrar/{id}', [MeetingsController::class, 'show'])->name('meetings.show');
     Route::get('/sala/editar/{id}', [MeetingsController::class, 'edit'])->name('meetings.edit');
     Route::put('/sala/atualizar/{id}', [MeetingsController::class, 'update'])->name('meetings.update');
     Route::delete('/sala/apagar/{id}', [MeetingsController::class, 'destroy'])->name('meetings.destroy');
+    Route::get('/sala/privada/{id}', [MeetingsController::class,'meetingsPrivate'])->name('meetings.private');
     Route::post('/sala/validando/{id}', [MeetingsController::class, 'validateMeeting'])->name('meetings.validate');
 });

@@ -22,7 +22,7 @@ class Meetings extends Model
             if($search){
                 $query->where('meetingName', 'LIKE', "%{$search}%");
             }
-        })->paginate(5);
+        })->orderBy('created_at','desc')->paginate(3);
 
         return view('meetings.index', compact('meetings'));
     }
@@ -37,14 +37,14 @@ class Meetings extends Model
 
     public function validateMeeting($id, $request, $model ,$routeTrue, $routeFalse)
     {
-        $data =  $model->find($id);
+        $data = $model->find($id);
 
         if($data['password'] == $request)
         {
             return redirect()->route($routeTrue, $id);
         }else
         {
-            return redirect()->route($routeFalse)->with('error', 'senha inválida');
+            return redirect()->route($routeFalse, $id)->with('error', 'senha inválida');
         }
     }
 }

@@ -21,14 +21,6 @@
             <a href="{{ route('meetings.create') }}" class='btn btn-warning my-3'><i class="fa-solid fa-plus"></i> Criar nova sala</a>
         </div>
     </div>
-    @if($errors->any())
-        <div class="alert alert-info" role="alert">
-            @foreach($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach 
-        </div>
-    @endif
-    
     <div class="row mb-5 d-flex justify-content-center">
         @forelse($meetings as $meeting)
             <div class="col-md-6 col-lg-4 col-xl-3 mt-3" >
@@ -48,37 +40,23 @@
                         </div>
                     @endif 
                 </div>
-                <div class="card border-0 shadow mb-3" style="height: 350px;">
+                <div class="card border-0 shadow mb-3" style="height: 94%;">
                     <span class="text-center py-3 bg-warning">Nome da Sala: <strong>{{$meeting->meetingName}}</strong></span>
                     @if($meeting->status == 'public')
-                        <div class="position-relative mb-3">
+                        <div class="position-relative mb-4">
                         <iframe width="100%" height="200px" src="{{ $meeting->url }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <a  href="{{ route('meetings.show', $meeting->id) }}" class="btn btn-sm  rounded-pill btn-warning position-absolute top-100 start-50 translate-middle"><strong>Entrar na sala</strong></a>
                         </div>
                     @else
-                        <form action="{{ route('meetings.validate', $meeting->id) }}" method='POST' class='rounded shadow p-3 p-lg-5 form-group' enctype="multipart/form-data">
-                            @csrf
-                            @if($errors->any())
-                                <div class="alert alert-info" role="alert">
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach 
-                                </div>
-                            @endif
-
-                            @if(session()->has('error'))
-                                <div class="alert alert-danger" role="alert">
-                                    <li>{{ session()->get('error') }}</li>
-                                </div>
-                            @endif
-                            <input type="text" name="password" class="form-control" required id="password" placeholder="Digite a senha da sala">
-                            <div class='text-center'>
-                                <button type="submit" class='btn btn-warning mt-2'>Enviar</button>
-                            </div>
-                        </form>
+                    <div class="alert alert-dark" role="alert">
+                        <h4 class="alert-heading">Ei!</h4>
+                        <p>Esta sala foi criada com senha e configurada para ser privada</p>
+                        <hr>
+                        <p>Se quiser acessa-la precisará da senha, <a href="{{ route('meetings.private', $meeting->id) }}">clique aqui para inserir</a></p>
+                    </div>
                     @endif
                     <div class="card-body">
-                        <h6 class="card-title text-center">Administrador: <strong>{{$meeting->user->name}}</strong></h6>
+                        <h6 class="card-title align-content-center text-center">Administrador: <strong>{{$meeting->user->name}}</strong></h6>
                     </div>
                 </div>
             </div>
