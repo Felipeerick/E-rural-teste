@@ -1,4 +1,7 @@
-# Sobre o projeto
+<img src="https://www.erural.net/assets/logos/erural_color-29185a2792a68a60c53900c81e4b9d1cf8486c1cb2d6bfbde78ee28a037e5ebb.svg" width='800px'>
+
+
+## Sobre o projeto
 
 É um sistema que permite que você cadastre uma conta e crie salas, onde as mesmas podem ser privadas ou públicas. Se for pública qualquer pessoa que se registrar pode ter acesso, visualizando antes de entrar o conteúdo da sala, mas sendo privada, terá um aviso informando que a sala precisa de senha e que ao clicar no aviso, o usuário é redirecionado ao formulário, onde precisará informar a senha para acessar o conteúdo.
 
@@ -36,7 +39,7 @@ php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
 
-- Para instalar o laravel [documentação laravel](https://laravel.com/docs/9.x/installation) só seguir os passos da documentação :}
+- Para instalar o laravel [documentação laravel](https://laravel.com/docs/9.x/installation), só seguir os passos da documentação :}
 
 - Para instalar o banco de dados, eu gosto de usar o [mariadb](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.11.0&os=windows&cpu=x86_64&pkg=msi&m=fder), e inclusive foi o que eu usei no projeto.
 
@@ -44,7 +47,7 @@ php -r "unlink('composer-setup.php');"
 
 ### Rodando o projeto
 
-Possuindo todas essas tecnologias instaladas na máquina, vamos começar. Primeiramente, abri uma pasta na área de trabalho e abra o git dentro da pasta e cole o código:
+Possuindo todas essas tecnologias instaladas na máquina, vamos começar. Primeiramente, abra uma pasta na área de trabalho e abra o git dentro da pasta e cole o código:
 
 ```
 git clone https://github.com/Felipeerick/E-rural-teste
