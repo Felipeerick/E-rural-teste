@@ -1,66 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Sobre o projeto
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+É um sistema que permite que você cadastre uma conta e crie salas, onde as mesmas podem ser privadas ou públicas. Se for pública qualquer pessoa que se registrar pode ter acesso, visualizando antes de entrar o conteúdo da sala, mas sendo privada, terá um aviso informando que a sala precisa de senha e que ao clicar no aviso, o usuário é redirecionado ao formulário, onde precisará informar a senha para acessar o conteúdo.
 
-## About Laravel
+## Quais as tecnologias utilizadas?
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel 9
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Css
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Bootstrap
 
-## Learning Laravel
+- Html
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- mysql
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- php
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## O que é necessário para rodar o projeto?
 
-## Laravel Sponsors
+Para rodar o projeto é necessário possuir o composer, laravel 9, php no projeto local ou na máquina, um editor de texto, um banco de dados e o git. 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Para o editor de texto, eu, particulamente gosto do [visual studio code installer](https://code.visualstudio.com/Download), nesse link tem os exequíveis com os sistemas operacionais linux, windows e mac.
 
-### Premium Partners
+- Para instalar o php: [php no windows](https://www.youtube.com/watch?v=KwEilZK5d04), [php no linux ubuntu](https://www.youtube.com/watch?v=csrc12y5zPk)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Para instalar o composer na máquina: clique neste link e cairá na página oficial do [Composer page download](https://getcomposer.org/download/), e entrando na página, baixe o arquivo .exe. E para usar no local cole esses comandos no terminal:
 
-## Contributing
+```
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 
-## Code of Conduct
+php composer-setup.php
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+php -r "unlink('composer-setup.php');"
+```
 
-## Security Vulnerabilities
+- Para instalar o laravel [documentação laravel](https://laravel.com/docs/9.x/installation) só seguir os passos da documentação :}
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Para instalar o banco de dados, eu gosto de usar o [mariadb](https://mariadb.org/download/?t=mariadb&p=mariadb&r=10.11.0&os=windows&cpu=x86_64&pkg=msi&m=fder), e inclusive foi o que eu usei no projeto.
 
-## License
+- Para instalar o git [Git installer](https://git-scm.com/downloads), aqui tem vários sistemas operacionais.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Rodando o projeto
+
+Possuindo todas essas tecnologias instaladas na máquina, vamos começar. Primeiramente, abri uma pasta na área de trabalho e abra o git dentro da pasta e cole o código:
+
+```
+git clone https://github.com/Felipeerick/E-rural-teste
+```
+
+O git irá clonar tudo para a pasta. Depois disso abra o visual studio code e abra a pasta que o git clonou e rode o comando 
+```
+composer update
+```
+Depois, crie um banco de dados no maria db usando esses códigos:
+
+```
+mariadb -u root (se você não alterou o nome do usuário) -p
+(e a senha se você colocou senha) ex:12345
+
+create database teste_e-rural;
+```
+
+Agora você terá que clonar o arquivo .env.example e renomear para .env, caso esteja com APP_KEY vazio rode o comando:
+
+```
+php artisan key:generate
+```
+
+agora configure o arquivo .env com essas variáveis:
+```
+APP_NAME=Laravel
+APP_ENV=local
+APP_KEY=base64:+fz8R7pMAevgO8l8o89bgAlqJsAe5fCOhMHDYIPbZuA=
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=api_teste
+DB_USERNAME=root
+DB_PASSWORD=12
+```
+rode o comando agora 
+```
+php artisan serve
+```
+
+Pronto!! O projeto vai estar rodando, vá no seu navegador e digite localhost:8000
