@@ -10,7 +10,7 @@
         <form action="{{ route('meetings.index') }}" method="GET" class="w-50 mt-3 mx-2">
             @csrf
              <div class="input-group flex-nowrap">
-               <input type="text" name="search" class="form-control" placeholder="Pesquisar..." aria-label="Pesquisar" aria-describedby="addon-wrapping">
+               <input type="text" name="search" class="form-control" placeholder="Pesquisar o nome da sala..." aria-label="Pesquisar" aria-describedby="addon-wrapping">
                <button class="input-group-text bg-danger text-light me-3 rounded-end" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></button>
                <button type="submit" class="input-group-text bg-danger text-light rounded-start" id="addon-wrapping">
                   <i class="fa-solid fa-broom"></i>
